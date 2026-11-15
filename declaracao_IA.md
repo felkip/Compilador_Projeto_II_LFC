@@ -1,31 +1,48 @@
 # Declaração de uso de IA generativa
 
-Projeto: MiniLang — Compilador-Intérprete (Linguagens Formais e Compiladores, Unidade II)
-Conforme Portaria CNPq nº 2.664/2026.
+**Projeto:** MiniLang — Compilador-Intérprete (Linguagens Formais e Compiladores, Unidade II)
+**Norma:** Portaria CNPq nº 2.664/2026
 
-> Apagar a opção que não se aplica. Este arquivo não substitui o `docs/diario_de_bordo.md`,
-> a análise no `docs/relatorio.pdf` nem a defesa oral individual.
+Nosso grupo **utilizou** ferramentas de IA generativa neste projeto, como copiloto de desenvolvimento.
+Abaixo estão a ferramenta, as etapas e a finalidade de cada uso.
 
-## Opção A — Houve uso de IA generativa
+## 1. Ferramenta utilizada
 
-| Ferramenta e versão/modelo | Etapa do projeto | Finalidade específica |
-|----------------------------|------------------|------------------------|
-| _ex.: Claude (modelo X)_ | _ex.: Gramática EBNF_ | _ex.: revisar ambiguidade de precedência_ |
-| _ex.: Claude (modelo X)_ | _ex.: Lexer_ | _ex.: sugerir casos de teste inválidos_ |
-| | | |
+| Ferramenta | Versão/modelo | Como foi acessada |
+|------------|---------------|-------------------|
+| Claude (Anthropic) | Claude Sonnet 5.5 | Interface de chat (claude.ai) |
 
-Todo código, gramática ou artefato gerado por IA foi revisado, testado e é explicável por todos os integrantes.
-Os registros detalhados (prompts, erros da IA e correções) estão no diário de bordo.
+> Se alguém do grupo usar outra ferramenta (ChatGPT, Copilot, Gemini...), é só adicionar uma linha aqui
+> e nas tabelas abaixo. Se o modelo mudar no meio do projeto, registrem a troca e a data.
 
-## Opção B — NÃO houve uso de IA generativa
+## 2. Etapas e finalidade
 
-Declaramos expressamente a ausência de uso de ferramentas de IA generativa em todas as etapas do trabalho
-(definição da linguagem, lexer, parser, AST, interpretador, tratamento de erros, testes, relatório e vídeo).
+| Etapa do projeto | Finalidade específica do uso |
+|------------------|------------------------------|
+| Planejamento | Ler o enunciado, organizar o cronograma e dividir as tarefas entre os integrantes |
+| Estrutura do repositório | Montar o esqueleto de pastas e arquivos (README, `.gitignore`, templates), sem código do compilador |
+| _Gramática EBNF_ | _preencher quando usar (ex.: revisar ambiguidades)_ |
+| _Lexer_ | _preencher quando usar_ |
+| _Parser e AST_ | _preencher quando usar_ |
+| _Interpretador e erros_ | _preencher quando usar_ |
+| _Testes_ | _preencher quando usar_ |
+| _Relatório_ | _preencher quando usar_ |
 
-## Integrantes
+As linhas em itálico são para ser completadas ao longo do projeto. Se alguma etapa acabar sem uso de IA,
+apaguem a linha ou escrevam "sem uso de IA".
+
+## 3. Como tratamos o que a IA gerou
+
+- Tudo que veio da IA foi lido, testado e é explicável por todos do grupo.
+- Os usos, os erros da IA e o que reescrevemos estão registrados no `docs/diario_de_bordo.md`
+  e analisados no `docs/relatorio.pdf`.
+- Esta declaração não substitui o diário, o relatório nem a defesa oral individual.
+
+## 4. Integrantes
 
 - Luís Felipe Carmelo da Silva
 - _Integrante 2_
 - _Integrante 3_
 
-Data: ___/___/2026
+Data: 15/11/2026
+
