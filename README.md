@@ -13,7 +13,7 @@ Docente: Layse Santos Souza.
 
 ## Ferramenta de IA utilizada
 
-_Declarar aqui a(s) ferramenta(s) e modelo(s) (ex.: Claude, ChatGPT, Copilot) ou escrever que não houve uso._
+Claude Sonnet 5.5 (Anthropic), usado como copiloto de desenvolvimento.
 Detalhes completos em [`declaracao_IA.md`](declaracao_IA.md), [`docs/diario_de_bordo.md`](docs/diario_de_bordo.md) e `docs/relatorio.pdf`.
 
 ## Requisitos
@@ -56,3 +56,4 @@ tests/       validos/ e invalidos/
 ## Vídeo de apresentação
 
 _Colar aqui o link público (ou indicar `docs/apresentacao.mp4`)._
+
