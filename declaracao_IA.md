@@ -11,6 +11,7 @@ Abaixo estão a ferramenta, as etapas e a finalidade de cada uso.
 | Ferramenta | Versão/modelo | Como foi acessada |
 |------------|---------------|-------------------|
 | Claude (Anthropic) | Claude Sonnet 5.5 | Interface de chat (claude.ai) |
+| Claude (Anthropic) | Claude Opus 5.5 | Interface de chat (claude.ai) |
 | ChatGPT (OpenAI) | GPT-6 | Interface de chat (ChatGPT) |
 
 
