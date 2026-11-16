@@ -4,18 +4,23 @@ Projeto da Unidade II de **Linguagens Formais e Compiladores** (Ciência da Comp
 
 **Docente:** Layse Santos Souza.
 
-## Integrantes
+## Integrantes e contribuições
 
-| Nome | Matrícula | Parte principal |
-|------|-----------|-----------------|
-| Luís Felipe Carmelo da Silva | _preencher_ | Correções da letra A e desenvolvimento da letra B (analisador léxico) |
-| _Integrante 2_ | _preencher_ | _preencher_ |
-| _Integrante 3_ | _preencher_ | _preencher_ |
+| Integrante | Principais contribuições |
+|---|---|
+| Luís Felipe Carmelo da Silva | Revisão e correções da etapa A; desenvolvimento da etapa B, incluindo implementação do analisador léxico, documentação das expressões regulares e do AFD e elaboração dos testes léxicos. |
+| [Nome do segundo integrante] | [Descrever as contribuições efetivamente realizadas.] |
+| [Nome do terceiro integrante] | [Descrever as contribuições efetivamente realizadas.] |
 
-## Ferramentas de IA utilizadas
+## Ferramentas utilizadas
 
-Claude Sonnet 5.5 (Anthropic) e ChatGPT (GPT-6, OpenAI) foram utilizados como copilotos durante o planejamento, a revisão documental e o apoio à implementação e aos testes do analisador léxico (item B).
+- **Python:** linguagem utilizada na implementação do projeto.
+- **pytest:** execução dos testes automatizados.
+- **Git e GitHub:** controle de versão e hospedagem do repositório.
+- **ChatGPT (GPT-6):** apoio à revisão da gramática, análise da implementação do lexer, elaboração e revisão de testes e documentação.
+- **Claude:** ferramenta de apoio utilizada durante o desenvolvimento. O modelo e as etapas específicas de utilização devem corresponder ao registro da declaração de IA.
 
+As sugestões geradas pelas ferramentas de IA foram utilizadas como apoio, devendo ser revisadas, compreendidas e verificadas pelos integrantes do grupo.
 Os usos específicos das ferramentas estão registrados em [`declaracao_IA.md`](declaracao_IA.md) e [`docs/diario_de_bordo.md`](docs/diario_de_bordo.md).
 
 ## Contribuições individuais registradas
