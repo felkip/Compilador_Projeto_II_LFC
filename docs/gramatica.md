@@ -297,8 +297,6 @@ emite `EOF`.
 
 ### Diagrama do AFD
 
-![AFD do lexer](afd_lexer.png)
-
 Legenda das classes: `L` letra ASCII ou `_`; `D` dígito; `B` espaço, tab, `\r` ou `\n`; `igual` `=`; `menor` `<`; `maior` `>`; `excl` `!`; `barra` `/`; `estrela` `*`; `nl` quebra de linha; `simbolo simples` é qualquer um entre `+ - * ( ) { } ;`; `outro` é qualquer caractere que não esteja entre os que saem do estado.
 
 Para o desenho ficar legível, as setas de volta a `q0` (depois de emitir um token ou descartar um comentário) não foram desenhadas. Cada estado informa a ação que executa ao sair. Estados verdes emitem token, os roxos são intermediários e os vermelhos levam ao erro. Depois de um erro, o lexer volta a `q0` e continua (ver "Recuperação após erro léxico").
