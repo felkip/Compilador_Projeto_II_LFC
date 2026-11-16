@@ -144,7 +144,7 @@ for (i = 0; i < 5; i = i + 1) { soma = soma + i; }
 if (soma > 20) { print(soma); } else { print(0); }
 ```
 
-**Justificativa.** *Léxico:* todos os caracteres pertencem a Σ e cada lexema casa com uma ER da tabela de tokens. *Sintático:* existe derivação a partir de `programa`. Cada linha é um `comando`, e o `for` tem as três cláusulas na ordem `atribuicao ";" expressao ";" atribuicao`. *Semântico:* toda variável é atribuída antes do uso (S1), as condições `x > 0`, `i < 5` e `soma > 20` são `bool` (S4), toda aritmética é entre `int` (S2) e não há divisão. Saída deste trecho: `10 9 … 1 0`. O `while` imprime `10 9 … 1`, pois sua condição é `x > 0`; o último `0` é impresso pelo bloco `else`, já que `soma` vale `10` e não é maior que `20`. A versão completa está em `exemplos/programa_valido.ml`.
+**Justificativa.** *Léxico:* todos os caracteres pertencem a Σ e cada lexema casa com uma ER da tabela de tokens. *Sintático:* existe derivação a partir de `programa`. Cada linha é um `comando`, e o `for` tem as três cláusulas na ordem `atribuicao ";" expressao ";" atribuicao`. *Semântico:* toda variável é atribuída antes do uso (S1), as condições `x > 0`, `i < 5` e `soma > 20` são `bool` (S4), toda aritmética é entre `int` (S2) e não há divisão. Saída deste trecho: `10 9 … 1`. O `while` imprime `10 9 … 1`, pois sua condição é `x > 0`; o último `0` é impresso pelo bloco `else`, já que `soma` vale `10` e não é maior que `20`. A versão completa está em `exemplos/programa_valido.ml`.
 
 ### Exemplo 2 — INVÁLIDO LÉXICO
 
