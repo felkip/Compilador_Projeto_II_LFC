@@ -28,10 +28,24 @@ Este documento define a MiniLang em três níveis, um para cada fase do compilad
 | Delimitadores | `ABRE_PAR` `(`, `FECHA_PAR` `)`, `ABRE_CHAVE` `{`, `FECHA_CHAVE` `}`, `PONTO_VIRGULA` `;` |
 | Fim | `EOF` |
 
-Espaços em branco e comentários (`// ...` até o fim da linha e `/* ... */`) são reconhecidos e **descartados** pelo lexer. Eles não chegam ao parser.
+### Comentários
 
-> **Extensão aprovada pelo grupo — comentários de bloco.** O escopo obrigatório pede somente comentários de linha (`//`). Para possibilitar o teste de comentário não fechado solicitado no item (b), o grupo aprovou também o reconhecimento de comentários de bloco delimitados por `/*` e `*/`. Essa é uma extensão deliberada da MiniLang, não uma exigência da especificação original. Se o fim do arquivo for alcançado antes de `*/`, o lexer deve emitir um erro léxico.
+A especificação obrigatória original da MiniLang define comentários de linha iniciados por `//`, que se estendem até o final da linha.
 
+Além desse formato, o grupo aprovou a inclusão de comentários de bloco delimitados por `/*` e `*/` como uma extensão da linguagem. Essa extensão permite representar comentários que ocupam várias linhas e possibilita testar o tratamento de comentários não fechados pelo analisador léxico.
+
+Exemplos:
+
+```text
+// Comentário de linha
+
+/*
+   Comentário de bloco
+   com várias linhas
+*/
+```
+
+Um comentário de bloco sem o delimitador de fechamento `*/` deve gerar um erro léxico.
 ---
 
 ## 2. Gramática EBNF
