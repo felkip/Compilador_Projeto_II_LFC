@@ -22,7 +22,7 @@ Abaixo estão a ferramenta, as etapas e a finalidade de cada uso.
 | Planejamento | Ler o enunciado, organizar o cronograma e dividir as tarefas entre os integrantes |
 | Estrutura do repositório | Montar o esqueleto de pastas e arquivos (README, `.gitignore`, templates), sem código do compilador |
 | Gramática EBNF (item a) | ChatGPT (GPT-6): apoio à revisão documental de `docs/gramatica.md`; esclarecimento da distinção entre alfabeto de caracteres e alfabeto de tokens; correção da descrição da saída do exemplo válido. **Responsável pela revisão humana e aplicação das alterações:** Luís Felipe Carmelo da Silva. Não foram alteradas as produções EBNF. |
-| Lexer (item b) | ChatGPT (GPT-6) e Claude Sonnet 5.5: apoio à implementação de `src/lexer.py`, definição dos tipos de token, tratamento de comentários, diagnósticos com linha/coluna e elaboração dos testes léxicos válidos e inválidos. **Responsável pelas alterações e pela revisão humana nesta etapa:** Luís Felipe Carmelo da Silva. A implementação e os testes devem ser revisados e compreendidos por todos os integrantes do grupo. |
+| Lexer (item b) | ChatGPT (GPT-6) e Claude Sonnet 5.5: apoio à implementação de `src/lexer.py`, definição dos tipos de token, tratamento de comentários, diagnósticos com linha/coluna, escrita da seção Léxica do relatorio.pdf e elaboração dos testes léxicos válidos e inválidos. **Responsável pelas alterações e pela revisão humana nesta etapa:** Luís Felipe Carmelo da Silva. A implementação e os testes devem ser revisados e compreendidos por todos os integrantes do grupo. |
 | _Parser e AST_ | _preencher quando usar_ |
 | _Interpretador e erros_ | _preencher quando usar_ |
 | _Testes_ | _preencher quando usar_ |
