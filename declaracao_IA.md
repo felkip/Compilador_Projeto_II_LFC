@@ -11,9 +11,8 @@ Abaixo estão a ferramenta, as etapas e a finalidade de cada uso.
 | Ferramenta | Versão/modelo | Como foi acessada |
 |------------|---------------|-------------------|
 | Claude (Anthropic) | Claude Sonnet 5.5 | Interface de chat (claude.ai) |
+| ChatGPT (OpenAI) | GPT-6 | Interface de chat (ChatGPT) |
 
-> Se alguém do grupo usar outra ferramenta (ChatGPT, Copilot, Gemini...), é só adicionar uma linha aqui
-> e nas tabelas abaixo. Se o modelo mudar no meio do projeto, registrem a troca e a data.
 
 ## 2. Etapas e finalidade
 
@@ -21,8 +20,8 @@ Abaixo estão a ferramenta, as etapas e a finalidade de cada uso.
 |------------------|------------------------------|
 | Planejamento | Ler o enunciado, organizar o cronograma e dividir as tarefas entre os integrantes |
 | Estrutura do repositório | Montar o esqueleto de pastas e arquivos (README, `.gitignore`, templates), sem código do compilador |
-| _Gramática EBNF_ | _preencher quando usar (ex.: revisar ambiguidades)_ |
-| _Lexer_ | _preencher quando usar_ |
+| Gramática EBNF (item a) | ChatGPT (GPT-6): apoio à revisão documental de `docs/gramatica.md`; esclarecimento da distinção entre alfabeto de caracteres e alfabeto de tokens; correção da descrição da saída do exemplo válido. **Responsável pela revisão humana e aplicação das alterações:** Luís Felipe Carmelo da Silva. Não foram alteradas as produções EBNF. |
+| Lexer (item b) | ChatGPT (GPT-6): apoio à implementação de `src/lexer.py`, definição dos tipos de token, tratamento de comentários, diagnósticos com linha/coluna e elaboração dos testes léxicos válidos e inválidos. **Responsável pelas alterações e pela revisão humana nesta etapa:** Luís Felipe Carmelo da Silva. A implementação e os testes devem ser revisados e compreendidos por todos os integrantes do grupo. |
 | _Parser e AST_ | _preencher quando usar_ |
 | _Interpretador e erros_ | _preencher quando usar_ |
 | _Testes_ | _preencher quando usar_ |
@@ -41,8 +40,7 @@ apaguem a linha ou escrevam "sem uso de IA".
 ## 4. Integrantes
 
 - Luís Felipe Carmelo da Silva
-- _Integrante 2_
-- _Integrante 3_
+- João Paulo Melo Feitosa
+- Tiago Sales Guimarães
 
 Data: 15/11/2026
-
