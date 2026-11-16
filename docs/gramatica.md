@@ -46,6 +46,7 @@ Exemplos:
 ```
 
 Um comentário de bloco sem o delimitador de fechamento `*/` deve gerar um erro léxico.
+
 ---
 
 ## 2. Gramática EBNF
@@ -152,7 +153,7 @@ a = 3 @ 2;
 b = 1x + 1;
 ```
 
-**Justificativa.** `@ ∉ Σ`: o caractere não pertence ao alfabeto, então nenhuma expressão regular de token casa com ele (*caractere inválido*). `1x` não casa com `INT = digito { digito }` nem com `ID = letra { letra | digito }`, porque um identificador não pode começar com dígito. Um dígito seguido imediatamente de letra não forma nenhum token válido (*token mal formado*). As duas violações são do nível léxico, pois acontecem antes de qualquer regra da gramática ser aplicada. O lexer reporta **os dois** erros.
+**Justificativa.** `@ ∉ Σ`: o caractere não pertence ao alfabeto, então nenhuma expressão regular de token casa com ele (*caractere inválido*). Já `1x` seria lido como `INT` (`1`) seguido de `ID` (`x`) se o lexer só aplicasse o maior casamento de cada token, porque um identificador não pode começar com dígito. Por isso a MiniLang acrescenta uma regra léxica explícita: um `INT` não pode vir imediatamente seguido de letra ou `_`, e essa sequência é um *número malformado* (no autômato, a transição de `qINT` para `qMALNUM`, ver seção Lexer). As duas violações são do nível léxico, pois acontecem antes de qualquer regra da gramática ser aplicada. O lexer reporta **os dois** erros.
 
 ### Exemplo 3 — INVÁLIDO SINTÁTICO
 
@@ -222,9 +223,11 @@ que um identificador completo é lido; assim, `while` é `WHILE`, mas `while1`
 | `FECHA_CHAVE` | `\}` | `}` |
 | `PONTO_VIRGULA` | `;` | `;` |
 | `COMENTARIO_LINHA` | `//[^\n]*` (descartado) | `// observação` |
-| `COMENTARIO_BLOCO` | `/\*[\s\S]*?\*/` (descartado) | `/* nota */` |
+| `COMENTARIO_BLOCO` | `/\*([^*]\|\*+[^*/])*\*+/` (descartado) | `/* nota */` |
 | `WHITESPACE` | `[ \t\r\n]+` (descartado) | espaço ou quebra de linha |
 | `EOF` | fim da entrada | — |
+
+**Comentário de bloco.** A expressão acima descreve "tudo entre `/*` e o *primeiro* `*/`": o miolo não pode conter `*/`, porque `[^*]` não aceita `*` e cada sequência de `*` precisa ser seguida de algo que não seja `/`. Escrever `/\*[\s\S]*?\*/` (com `*?` preguiçoso) dá o mesmo resultado em uma biblioteca de regex, mas o quantificador preguiçoso não é uma expressão regular no sentido formal, e a linguagem de `/\*[\s\S]*\*/` aceitaria `/* a */ b */` inteiro. Por isso o comentário de bloco é a única categoria em que o lexer fecha no primeiro `*/` em vez de buscar o maior lexema.
 
 Um número seguido imediatamente por letra ou sublinhado, como `1x`, é
 reportado como **lexema numérico malformado**. O caractere `!` isolado também
@@ -292,6 +295,68 @@ em laço for válida. Os comentários e espaços são reconhecidos e descartados
 sem produzir tokens. Depois de consumir toda a entrada sem erros, o lexer
 emite `EOF`.
 
+### Diagrama do AFD
+
+![AFD do lexer](afd_lexer.png)
+
+Legenda das classes: `L` letra ASCII ou `_`; `D` dígito; `B` espaço, tab, `\r` ou `\n`; `igual` `=`; `menor` `<`; `maior` `>`; `excl` `!`; `barra` `/`; `estrela` `*`; `nl` quebra de linha; `simbolo simples` é qualquer um entre `+ - * ( ) { } ;`; `outro` é qualquer caractere que não esteja entre os que saem do estado.
+
+Para o desenho ficar legível, as setas de volta a `q0` (depois de emitir um token ou descartar um comentário) não foram desenhadas. Cada estado informa a ação que executa ao sair. Estados verdes emitem token, os roxos são intermediários e os vermelhos levam ao erro. Depois de um erro, o lexer volta a `q0` e continua (ver "Recuperação após erro léxico").
+
+Versão em Mermaid, que o GitHub renderiza:
+
+```mermaid
+stateDiagram-v2
+    direction LR
+    state "qID - emite ID ou reservada ao ler outro caractere" as qID
+    state "qINT - emite INT ao ler outro caractere" as qINT
+    state "qEQ - emite ATRIB ao ler outro caractere" as qEQ
+    state "qEQEQ - emite IGUAL" as qEQEQ
+    state "qNE - emite DIFERENTE" as qNE
+    state "qLT - emite MENOR ao ler outro caractere" as qLT
+    state "qLE - emite MENOR_IGUAL" as qLE
+    state "qGT - emite MAIOR ao ler outro caractere" as qGT
+    state "qGE - emite MAIOR_IGUAL" as qGE
+    state "qSLASH - emite DIV ao ler outro caractere" as qSLASH
+    state "qLINE - descarta ao ler nl, EOF" as qLINE
+    state "qBLOCK_STAR - descarta ao ler barra" as qBLOCK_STAR
+    [*] --> q0
+    q0 --> qINT: D
+    q0 --> qID: L
+    q0 --> qSLASH: barra
+    q0 --> q0: simbolo simples - emite o token | B - descarta
+    q0 --> qEQ: igual
+    q0 --> qLT: menor
+    q0 --> qGT: maior
+    q0 --> qBANG: excl
+    q0 --> ERRO: outro - caractere nao permitido
+    qID --> qID: D, L
+    qINT --> qINT: D
+    qINT --> qMALNUM: L
+    qMALNUM --> qMALNUM: D, L
+    qMALNUM --> ERRO: qualquer outro - numero malformado
+    qEQ --> qEQEQ: igual
+    qBANG --> ERRO: qualquer outro - ! isolado
+    qBANG --> qNE: igual
+    qLT --> qLE: igual
+    qGT --> qGE: igual
+    qSLASH --> qLINE: barra
+    qSLASH --> qBLOCK: estrela
+    qLINE --> qLINE: qualquer exceto nl, EOF
+    qBLOCK --> qBLOCK: qualquer exceto estrela, EOF
+    qBLOCK --> qBLOCK_STAR: estrela
+    qBLOCK --> ERRO: EOF - comentario de bloco nao fechado
+    qBLOCK_STAR --> qBLOCK: qualquer exceto barra, estrela, EOF
+    qBLOCK_STAR --> qBLOCK_STAR: estrela
+    qBLOCK_STAR --> ERRO: EOF - comentario de bloco nao fechado
+    ERRO --> q0: retoma a leitura
+    classDef final fill:#d4edda,stroke:#2e7d32,color:#000
+    classDef erro fill:#f8d7da,stroke:#c62828,color:#000
+    class qID,qINT,qEQ,qEQEQ,qNE,qLT,qLE,qGT,qGE,qSLASH final
+    class ERRO erro
+    class qMALNUM erro
+```
+
 ### Relação entre expressões regulares, AFD e implementação
 
 Cada categoria regular da tabela de tokens é reconhecida por um autômato
@@ -302,11 +367,30 @@ seguintes. Os operadores de dois caracteres são reconhecidos com estados de
 antecipação (`qEQ`, `qLT`, `qGT` e `qBANG`), garantindo que `<=` seja um único
 token `MENOR_IGUAL`, em vez de `MENOR` seguido de `ATRIB`.
 
-A implementação em `src/lexer.py` percorre a entrada da esquerda para a
-direita, mantendo posição de linha e coluna. O método `tokenize()` aplica as
-transições descritas, descarta espaços e comentários, consulta a tabela de
-palavras reservadas após reconhecer um identificador e acrescenta `EOF` ao
-final. Quando encontra uma sequência que não pertence a nenhuma expressão
-regular válida, registra um diagnóstico léxico. O comportamento é testado em
-`tests/validos/test_lexer_valido.py` e
-`tests/invalidos/test_lexer_invalido.py`.
+A implementação em `src/lexer.py` percorre a entrada da esquerda para a direita, mantendo linha e coluna. Ela não é dirigida por uma tabela de transições: é um *scanner* escrito à mão, em que cada estado do autômato virou um trecho de código. A correspondência é esta:
+
+| Estado do AFD | Onde está em `src/lexer.py` |
+|---|---|
+| `q0` | `tokenize()` (laço) e `_scan_token()` |
+| `qID` | `_identifier()`, seguido da consulta à tabela `KEYWORDS` |
+| `qINT`, `qMALNUM` | `_number()`: o laço de dígitos é `qINT`; o ramo em que aparece letra ou `_` depois dos dígitos é `qMALNUM` |
+| `qEQ`, `qLT`, `qGT`, `qEQEQ`, `qLE`, `qGE`, `qNE` | consulta do par de caracteres em `TWO_CHAR_TOKENS`; se não houver par, vale `ONE_CHAR_TOKENS` |
+| `qBANG` | o ramo `if char == "!"` de `_scan_token()` |
+| `qSLASH` | o teste de `/` com `_match("/")` e `_match("*")` em `_scan_token()` |
+| `qLINE` | `_line_comment()` |
+| `qBLOCK`, `qBLOCK_STAR` | `_block_comment()`: o par `*` e `/` é testado com `_peek()` e `_peek_next()` |
+
+Cada categoria da tabela de tokens é, portanto, reconhecida por um caminho do autômato, e o lexer devolve o maior lexema possível, com a exceção do comentário de bloco explicada acima. Espaços e comentários são reconhecidos e descartados, as palavras reservadas são resolvidas depois de ler o identificador inteiro, e `EOF` é acrescentado ao final. O comportamento é testado em `tests/validos/test_lexer_valido.py` e `tests/invalidos/test_lexer_invalido.py`.
+
+### Recuperação após erro léxico
+
+O lexer não para no primeiro erro: ele registra um diagnóstico (mensagem, lexema, linha e coluna), pula o trecho problemático e continua, para mostrar todos os erros léxicos de uma vez. Só no fim, se houve algum erro, lança `LexicalError` com a lista completa. O ponto em que a leitura retoma depende do erro:
+
+| Erro | O que é consumido | Onde retoma |
+|---|---|---|
+| Caractere fora de Σ (`@`, `#`, `ç`) | só o caractere | no caractere seguinte |
+| `!` isolado | só o `!` | no caractere seguinte |
+| Número malformado (`1x`, `1_`, `1x2y`) | o número e todas as letras, dígitos e `_` colados nele, como um erro só | no primeiro caractere fora dessa sequência |
+| Comentário de bloco não fechado | de `/*` até o fim da entrada | fim da entrada (é um único erro) |
+
+Consumir a sequência inteira em `1x2y` evita que um mesmo erro seja reportado várias vezes (`1x2y` não vira `1x` mais `2y`). No comentário não fechado, não há onde retomar com segurança, porque o resto do arquivo ainda poderia ser texto do comentário.
