@@ -23,7 +23,7 @@ Abaixo estão a ferramenta, as etapas e a finalidade de cada uso.
 | Estrutura do repositório | Montar o esqueleto de pastas e arquivos (README, `.gitignore`, templates), sem código do compilador |
 | Gramática EBNF (item a) | ChatGPT (GPT-6): apoio à revisão documental de `docs/gramatica.md`; esclarecimento da distinção entre alfabeto de caracteres e alfabeto de tokens; correção da descrição da saída do exemplo válido. **Responsável pela revisão humana e aplicação das alterações:** Luís Felipe Carmelo da Silva. Não foram alteradas as produções EBNF. |
 | Lexer (item b) | ChatGPT (GPT-6) e Claude Sonnet 5.5: apoio à implementação de `src/lexer.py`, definição dos tipos de token, tratamento de comentários, diagnósticos com linha/coluna, escrita da seção Léxica do relatorio.pdf e elaboração dos testes léxicos válidos e inválidos. **Responsável pelas alterações e pela revisão humana nesta etapa:** Luís Felipe Carmelo da Silva. A implementação e os testes devem ser revisados e compreendidos por todos os integrantes do grupo. |
-| _Parser e AST_ | _preencher quando usar_ |
+| Parser e AST (itens c e d) | Claude Sonnet 5.5: primeira versão de `src/parser.py` e `src/ast_nodes.py` (registrado abaixo); redação da seção "Análise sintática" do `docs/relatorio.pdf`; escrita dos testes `test_parser_valido.py`, `test_ast.py` e `test_parser_invalido.py`. **Responsáveis pela revisão humana:** Tiago Sales Guimaraes (código) e Luís Felipe Carmelo da Silva (testes e seção do relatório). |
 ### Itens (c) e (d): parser e nós da AST
 
 - **Ferramenta e modelo:** Claude Sonnet 5.5 (Anthropic).
@@ -34,6 +34,11 @@ Abaixo estão a ferramenta, as etapas e a finalidade de cada uso.
 - [**Responsável pela revisão humana e aplicação das alterações: Tiago Sales** 
   executou as árvores de `1 + 2 * 3` e `(1 + 2) * 3`, testou o `for` sem a
   cláusula de atualização]. [**verificou o codigo e adaptou para a gramatica.md e logica do projeto**]
+- **Atualização do item (c) (17/11/2026):**
+  - **Ferramenta e modelo:** Claude Sonnet 5.5 (Anthropic).
+  - **Etapa:** testes do parser e da AST e seção "Análise sintática" do relatório.
+  - **Finalidade:** a IA redigiu o rascunho da seção (técnica LL(1), FIRST/FOLLOW, árvores, justificativa formal, comparação com LR) e escreveu os testes. As árvores e as mensagens foram geradas executando o `parser.py`.
+  - **Responsável pela revisão humana e incorporação:** Luís Felipe Carmelo da Silva, que [leu, executou os testes e conferiu o texto com o código].
 | _Interpretador e erros_ | _preencher quando usar_ |
 | _Testes_ | _preencher quando usar_ |
 | _Relatório_ | _preencher quando usar_ |
