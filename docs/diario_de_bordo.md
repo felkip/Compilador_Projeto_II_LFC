@@ -27,6 +27,21 @@
   
 Observação: como a semana vai até 22/11, este registro deve ser complementado conforme novas atividades forem realizadas. Não registrar como concluídas tarefas que ainda estão previstas.
 
+///////////////////////////////////////////////////////////////////////////////
+- **Fase:** parser (item c) e AST (item d)
+- **Quem fez o quê:** [Tiago Sales ]
+- **Decisões tomadas e por quê:**
+  - Parser descendente recursivo LL(1): uma função por não terminal; a
+    precedência vem da cadeia de chamadas e as repetições `{ }` viram `while`
+    (associatividade à esquerda, sem recursão à esquerda).
+  - Relacionais não associativos: `_comparacao` usa `if` e não `while`.
+  - `for` exige as três cláusulas: cada `;` e cada atribuição é obrigatório.
+  - O parser para no primeiro erro sintático (ParseError com linha e coluna).
+- **Uso de IA:** Claude Sonnet 5.5 gerou a primeira versão de `parser.py` e
+  `ast_nodes.py`. [O que foi conferido: árvores de `1 + 2 * 3` e
+  `(1 + 2) * 3`, erro do `for` sem atualização.] [Reescrevi a parte do codigo para adaptação ao projeto e conferi os resultados, alterei a parte do ast_nodes.py na parte de expressões e alterei os comandos do ast_nodes.py e parser.py]
+- **Próximos passos:** testes do parser e da AST (hoje pulados), depois o
+  interpretador (item e).
 ## Semana 2
 
 (repetir o modelo)

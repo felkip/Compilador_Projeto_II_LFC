@@ -9,7 +9,7 @@ Projeto da Unidade II de **Linguagens Formais e Compiladores** (Ciência da Comp
 | Integrante | Principais contribuições |
 |---|---|
 | Luís Felipe Carmelo da Silva | Revisão e correções da etapa A; desenvolvimento da etapa B, incluindo implementação do analisador léxico, documentação das expressões regulares e do AFD e elaboração dos testes léxicos. |
-| [Nome do segundo integrante] | [Descrever as contribuições efetivamente realizadas.] |
+| [Tiago Sales Guimaraes] | [Parser descendente recursivo e AST (itens c e d), conforme o diário de bordo.] |
 | [Nome do terceiro integrante] | [Descrever as contribuições efetivamente realizadas.] |
 
 ## Ferramentas utilizadas
@@ -26,6 +26,7 @@ Os usos específicos das ferramentas estão registrados em [`declaracao_IA.md`](
 ## Contribuições individuais registradas
 
 - **Luís Felipe Carmelo da Silva:** realizou a revisão e as correções da letra A, incluindo ajustes na documentação da gramática e nos exemplos. Desenvolveu a letra B, incluindo a implementação do analisador léxico, seus testes e a documentação correspondente. Também incorporou o reconhecimento de comentários de bloco (`/* ... */`) como extensão da MiniLang, aceita pelo grupo para possibilitar o teste de comentários não fechados.
+- **Tiago Sales Guimaraes:** realizou a revisão da letra C,.
 - **Demais integrantes:** preencher suas contribuições nesta seção conforme as atividades que efetivamente realizaram.
 
 Os registros de uso de IA e o detalhamento das atividades estão disponíveis em [`declaracao_IA.md`](declaracao_IA.md) e [`docs/diario_de_bordo.md`](docs/diario_de_bordo.md). A análise técnica será complementada no relatório final.
@@ -39,7 +40,7 @@ Os registros de uso de IA e o detalhamento das atividades estão disponíveis em
 ```bash
 # 1. Clonar e entrar na pasta
 git clone <URL-DO-REPOSITORIO>
-cd minilang-compilador
+cd Compilador_Projeto_II_LFC
 
 # 2. Criar ambiente virtual (opcional)
 python -m venv .venv

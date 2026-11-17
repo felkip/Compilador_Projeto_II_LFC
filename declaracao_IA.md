@@ -24,6 +24,16 @@ Abaixo estão a ferramenta, as etapas e a finalidade de cada uso.
 | Gramática EBNF (item a) | ChatGPT (GPT-6): apoio à revisão documental de `docs/gramatica.md`; esclarecimento da distinção entre alfabeto de caracteres e alfabeto de tokens; correção da descrição da saída do exemplo válido. **Responsável pela revisão humana e aplicação das alterações:** Luís Felipe Carmelo da Silva. Não foram alteradas as produções EBNF. |
 | Lexer (item b) | ChatGPT (GPT-6) e Claude Sonnet 5.5: apoio à implementação de `src/lexer.py`, definição dos tipos de token, tratamento de comentários, diagnósticos com linha/coluna, escrita da seção Léxica do relatorio.pdf e elaboração dos testes léxicos válidos e inválidos. **Responsável pelas alterações e pela revisão humana nesta etapa:** Luís Felipe Carmelo da Silva. A implementação e os testes devem ser revisados e compreendidos por todos os integrantes do grupo. |
 | _Parser e AST_ | _preencher quando usar_ |
+### Itens (c) e (d): parser e nós da AST
+
+- **Ferramenta e modelo:** Claude Sonnet 5.5 (Anthropic).
+- **Etapa:** implementação do parser descendente recursivo (`src/parser.py`)
+  e das classes da AST (`src/ast_nodes.py`).
+- **Finalidade:** a IA gerou a primeira versão dos dois arquivos a partir da
+  gramática EBNF de `docs/gramatica.md` e dos tipos de token de `src/lexer.py`.
+- [**Responsável pela revisão humana e aplicação das alterações: Tiago Sales** 
+  executou as árvores de `1 + 2 * 3` e `(1 + 2) * 3`, testou o `for` sem a
+  cláusula de atualização]. [**verificou o codigo e adaptou para a gramatica.md e logica do projeto**]
 | _Interpretador e erros_ | _preencher quando usar_ |
 | _Testes_ | _preencher quando usar_ |
 | _Relatório_ | _preencher quando usar_ |
