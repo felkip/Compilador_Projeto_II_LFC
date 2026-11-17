@@ -42,6 +42,27 @@ Observação: como a semana vai até 22/11, este registro deve ser complementado
   `(1 + 2) * 3`, erro do `for` sem atualização.] [Reescrevi a parte do codigo para adaptação ao projeto e conferi os resultados, alterei a parte do ast_nodes.py na parte de expressões e alterei os comandos do ast_nodes.py e parser.py]
 - **Próximos passos:** testes do parser e da AST (hoje pulados), depois o
   interpretador (item e).
+///////////////////////////////////////////////////////////////////////////////
+- **Fase:** parser e AST (itens c e d), testes e seção do relatório
+- **Data do registro:** 17/11
+- **Quem fez o quê:**
+  - **Luís Felipe Carmelo da Silva:** revisão do item (c); incorporação ao repositório dos testes do parser e da AST (`tests/validos/test_parser_valido.py`, `tests/validos/test_ast.py`, `tests/invalidos/test_parser_invalido.py`); revisão e incorporação ao `docs/relatorio.pdf` da seção "Análise sintática".
+  - **Tiago Sales Guimaraes:** implementação do parser e da AST (registrada acima).
+- **Decisões tomadas e por quê:**
+  - A seção do relatório explicita a técnica (descendente recursiva LL(1)) e a justifica pelo cálculo de FIRST/FOLLOW da gramática do item (a), que não apresenta conflitos.
+  - A comparação com técnica alternativa foi feita com análise ascendente LR; o motivo da não escolha é que a gramática já é LL(1) e o projeto exige parser auditável.
+  - Os testes incluem laços mal formados e `else if`, que a MiniLang não admite.
+- **Dificuldades / descobertas:**
+  - Ao testar o aninhamento, o parser aceitou 140 níveis de parênteses e falhou com `RecursionError` em 200. Isso foi registrado como limitação conhecida no relatório.
+- **Uso de IA:**
+  - **Ferramenta:** Claude Sonnet 5.5 (Anthropic), via claude.ai.
+  - **Prompt resumido:** redigir a seção do relatório sobre o parser (técnica, compatibilidade LL(1), árvores, justificativa formal, comparação com LR) e escrever os testes do parser e da AST.
+  - **O que veio:** os três arquivos de teste (105 testes passando na suíte) e o rascunho da seção do relatório.
+  - **O que precisou ser conferido ou corrigido:** os testes passaram na primeira execução; para checar se realmente detectavam defeitos, o parser foi alterado de propósito de 5 formas. Uma dessas alterações foi construída incorretamente pela IA (equivalia ao código original e por isso "passou" sem ser detectada). Foi percebida e refeita, e as 5 alterações passaram a ser detectadas pelos testes. As árvores e as mensagens de erro do relatório foram geradas executando o `parser.py`, e os conjuntos FIRST/FOLLOW foram calculados e conferidos por execução.
+  - **O que foi reescrito e por quê:** [descrever o que o Luís Felipe realmente alterou no texto ou nos testes; se nada foi alterado, escrever "nada foi alterado após a conferência"].
+  - **Validação humana:** [confirmar: o Luís Felipe leu a seção, executou `pytest` e conferiu as árvores e mensagens com o `parser.py`]. O grupo deve conseguir explicar o cálculo de FIRST/FOLLOW e as provas da seção 5.
+- **Commits:** [colar o hash e a mensagem do commit, por exemplo `docs(relatorio): seção de análise sintática (item c)`].
+- **Próximos passos:** relatório do item (d) (diagrama da AST e justificativa); item (e), interpretador e tabela de símbolos.
 ## Semana 2
 
 (repetir o modelo)
