@@ -1,5 +1,5 @@
-"""Nos da AST da MiniLang (item d), incluindo While e For. TODO."""
-"""Nós da AST da MiniLang (item d), incluindo While e For.
+"""Nos da AST da MiniLang (item d), incluindo While e For. TODO.
+
 
 A AST é a versão "limpa" da árvore sintática: não guarda parênteses, ponto e
 vírgula, chaves nem palavras-chave, apenas o que o interpretador precisa para
