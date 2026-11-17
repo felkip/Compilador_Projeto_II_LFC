@@ -42,6 +42,7 @@ Observação: como a semana vai até 22/11, este registro deve ser complementado
   `(1 + 2) * 3`, erro do `for` sem atualização.] [Reescrevi a parte do codigo para adaptação ao projeto e conferi os resultados, alterei a parte do ast_nodes.py na parte de expressões e alterei os comandos do ast_nodes.py e parser.py]
 - **Próximos passos:** testes do parser e da AST (hoje pulados), depois o
   interpretador (item e).
+
 ///////////////////////////////////////////////////////////////////////////////
 - **Fase:** parser e AST (itens c e d), testes e seção do relatório
 - **Data do registro:** 17/11
