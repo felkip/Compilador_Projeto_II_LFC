@@ -40,7 +40,7 @@ Abaixo estão a ferramenta, as etapas e a finalidade de cada uso.
   - **Finalidade:** a IA redigiu o rascunho da seção (técnica LL(1), FIRST/FOLLOW, árvores, justificativa formal, comparação com LR) e escreveu os testes. As árvores e as mensagens foram geradas executando o `parser.py`.
   - **Responsável pela revisão humana e incorporação:** Luís Felipe Carmelo da Silva, que [leu, executou os testes e conferiu o texto com o código].
 | _Interpretador e erros_ | _preencher quando usar_ |
-| _Testes_ | _preencher quando usar_ |
+| Testes (parcial) | Claude Sonnet 5.5: testes do parser e da AST (itens c e d), validados por alteração intencional do parser (5 variações). Os demais testes serão registrados quando forem escritos. |
 | _Relatório_ | _preencher quando usar_ |
 
 As linhas em itálico são para ser completadas ao longo do projeto. Se alguma etapa acabar sem uso de IA,
