@@ -47,7 +47,7 @@ Observação: como a semana vai até 22/11, este registro deve ser complementado
 - **Fase:** parser e AST (itens c e d), testes e seção do relatório
 - **Data do registro:** 17/11
 - **Quem fez o quê:**
-  - **Luís Felipe Carmelo da Silva:** revisão do item (c); incorporação ao repositório dos testes do parser e da AST (`tests/validos/test_parser_valido.py`, `tests/validos/test_ast.py`, `tests/invalidos/test_parser_invalido.py`); revisão e incorporação ao `docs/relatorio.pdf` da seção "Análise sintática".
+  - **Luís Felipe Carmelo da Silva:** revisão do item (c); incorporação ao repositório dos testes do parser e da AST (`tests/validos/test_parser_valido.py`, `tests/invalidos/test_parser_invalido.py`); revisão e incorporação ao `docs/relatorio.pdf` da seção "Análise sintática".
   - **Tiago Sales Guimaraes:** implementação do parser e da AST (registrada acima).
 - **Decisões tomadas e por quê:**
   - A seção do relatório explicita a técnica (descendente recursiva LL(1)) e a justifica pelo cálculo de FIRST/FOLLOW da gramática do item (a), que não apresenta conflitos.
