@@ -31,7 +31,7 @@ Os usos específicos das ferramentas estão registrados em [`declaracao_IA.md`](
 
 Os registros de uso de IA e o detalhamento das atividades estão disponíveis em [`declaracao_IA.md`](declaracao_IA.md) e [`docs/diario_de_bordo.md`](docs/diario_de_bordo.md). A análise técnica será complementada no relatório final.
 
-Pré-requisitos
+## Pré-requisitos
 
 Python 3.10 ou superior.
 
