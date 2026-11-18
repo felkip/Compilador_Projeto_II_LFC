@@ -64,6 +64,7 @@ Observação: como a semana vai até 22/11, este registro deve ser complementado
   - **Validação humana:** [confirmar: o Luís Felipe leu a seção, executou `pytest` e conferiu as árvores e mensagens com o `parser.py`]. O grupo deve conseguir explicar o cálculo de FIRST/FOLLOW e as provas da seção 5.
 - **Commits:** [colar o hash e a mensagem do commit, por exemplo `docs(relatorio): seção de análise sintática (item c)`].
 - **Próximos passos:** relatório do item (d) (diagrama da AST e justificativa); item (e), interpretador e tabela de símbolos.
+  
 ///////////////////////////////////////////////////////////////////////////////
 - **Fase:** AST (item d): revisão dos nós, testes e seção do relatório
 - **Data do registro:** 18/11
@@ -80,6 +81,27 @@ Observação: como a semana vai até 22/11, este registro deve ser complementado
   - **Validação:** para conferir se os testes detectam defeitos de verdade, o parser foi alterado de propósito de 2 formas: trocar `init` com `update` no nó `For` e criar um nó para os parênteses. Os testes da AST falharam nos dois casos e voltaram a passar com o parser original. Suíte completa: 99 testes passando.
 - **Commits:** `Item (d): testes da AST`, `Item (d): revisão de ast_nodes.py`, `Item (d): diagrama da AST`.
 - **Próximos passos:** a seção da AST vai para o relatório quando ele for consolidado.
+
+///////////////////////////////////////////////////////////////////////////////
+- **Fase:** interpretador (item e), revisão dos testes e relatório
+- **Data do registro:** 18/11
+- **Quem fez o quê:**
+  - **Luís Felipe Carmelo da Silva:** implementação da etapa E, correspondente ao interpretador da MiniLang; elaboração do relatório final em PDF; revisão geral dos testes das etapas B a E, abrangendo o analisador léxico, parser, AST e interpretador.
+- **Decisões tomadas e por quê:**
+  - Manter a separação entre análise léxica, análise sintática, construção da AST e interpretação, permitindo que cada etapa seja testada individualmente.
+  - Revisar os testes válidos e inválidos para verificar se os comportamentos esperados estão de acordo com a especificação da MiniLang.
+  - Acrescentar casos de teste para situações de borda do analisador léxico, incluindo operadores, delimitadores, comentários e identificação de erros com linha e coluna.
+- **Dificuldades / descobertas:**
+  - A revisão dos testes permitiu identificar a necessidade de ampliar a cobertura de alguns comportamentos do lexer, principalmente em situações de borda.
+  - Foram adicionados testes complementares para verificar o reconhecimento de operadores e delimitadores, comentários de linha e bloco, números malformados e localização dos erros léxicos.
+- **Uso de IA:**
+  - **Ferramenta:** ChatGPT (OpenAI) e Claude Sonnnet 5.5.
+  - **Prompt resumido:** Desenvolvimento da letra E, revisão dos testes das etapas B a E, análise de possíveis casos de borda e sugestões de testes complementares para o analisador léxico.
+  - **O que veio:** sugestões de verificações adicionais para o lexer e apoio na análise da cobertura dos testes existentes.
+  - **O que precisou ser conferido ou corrigido:** as sugestões foram avaliadas em relação à implementação atual e à especificação da MiniLang. Os testes adicionados foram executados para verificar se os resultados correspondiam ao comportamento esperado.
+  - **Validação humana:** a suíte de testes foi executada após as alterações, totalizando 213 testes aprovados e 2 testes ignorados, referentes a funcionalidades da etapa G ainda não implementadas.
+- **Commits:** Acrescentar os itens pedidos da letra E, acrescentar os identificadores e as mensagens correspondentes às alterações efetivamente registradas no histórico do Git.
+- **Próximos passos:** concluir a revisão da documentação e continuar a fazer as outras letras (f, g e h).
 
 ## Semana 2
 
