@@ -1,4 +1,4 @@
-"""Nos da AST da MiniLang (item d), incluindo While e For. TODO.
+"""Nos da AST da MiniLang (item d), incluindo While e For.
 
 
 A AST é a versão "limpa" da árvore sintática: não guarda parênteses, ponto e
@@ -130,8 +130,8 @@ def arvore_texto(no, nivel: int = 0) -> str:
     saida = f"{pad}{type(no).__name__}({', '.join(simples)})\n"
     for f in fields(no):
         valor = getattr(no, f.name)
-        if f.name != "line" and (_eh_no(valor) or valor is None and f.name == "else_body"):
-            if valor is None:
-                continue
+        # Só os filhos que são nós ou listas viram sub-árvores; um else_body
+        # ausente (None) é simplesmente omitido.
+        if f.name != "line" and _eh_no(valor):
             saida += f"{pad}  .{f.name}:\n" + arvore_texto(valor, nivel + 2)
     return saida
