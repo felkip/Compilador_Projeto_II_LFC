@@ -64,6 +64,23 @@ Observação: como a semana vai até 22/11, este registro deve ser complementado
   - **Validação humana:** [confirmar: o Luís Felipe leu a seção, executou `pytest` e conferiu as árvores e mensagens com o `parser.py`]. O grupo deve conseguir explicar o cálculo de FIRST/FOLLOW e as provas da seção 5.
 - **Commits:** [colar o hash e a mensagem do commit, por exemplo `docs(relatorio): seção de análise sintática (item c)`].
 - **Próximos passos:** relatório do item (d) (diagrama da AST e justificativa); item (e), interpretador e tabela de símbolos.
+///////////////////////////////////////////////////////////////////////////////
+- **Fase:** AST (item d): revisão dos nós, testes e seção do relatório
+- **Data do registro:** 18/11
+- **Quem fez o quê:**
+  - **João Paulo:** revisão de `src/ast_nodes.py` (escrito pelo Tiago junto com o parser); testes da AST em `tests/validos/test_ast.py` (18 testes); diagrama da AST de um programa com laço (`docs/figuras/ast_programa_com_laco.png`); seção "Árvore sintática abstrata" do relatório (definição dos nós, diagrama, árvore concreta × abstrata e justificativa).
+- **Decisões tomadas e por quê:**
+  - Manter os nós do Tiago sem mudar a estrutura, porque o parser já depende deles e os testes do parser passavam.
+  - Testar o que a AST *descarta* (parênteses não viram nó; nenhum nó representa `;`, `{}` ou palavra-chave) e o que ela *preserva* (as três cláusulas do `for` em campos com nome; `1 + 2 * 3` ≠ `(1 + 2) * 3`).
+- **Uso de IA:**
+  - **Ferramenta:** Claude Opus 5.5 (Anthropic).
+  - **Prompt resumido:** revisar `ast_nodes.py`, escrever os testes da AST pedidos no item (d), gerar o diagrama da AST de um programa com laço e redigir a justificativa de que a AST preserva a semântica.
+  - **O que veio:** os testes, o diagrama (gerado a partir da AST real produzida pelo parser) e o texto da seção.
+  - **O que estava errado ou redundante:** na função `arvore_texto` de `ast_nodes.py` (gerada pelo Claude Sonnet 5.5 na etapa anterior), havia uma condição que deixava passar `else_body = None` só para descartá-lo na linha seguinte: código morto. Ela foi simplificada, e a saída da função continuou idêntica para o programa de exemplo. O docstring também ainda dizia "TODO".
+  - **Validação:** para conferir se os testes detectam defeitos de verdade, o parser foi alterado de propósito de 2 formas: trocar `init` com `update` no nó `For` e criar um nó para os parênteses. Os testes da AST falharam nos dois casos e voltaram a passar com o parser original. Suíte completa: 99 testes passando.
+- **Commits:** `Item (d): testes da AST`, `Item (d): revisão de ast_nodes.py`, `Item (d): diagrama da AST`.
+- **Próximos passos:** a seção da AST vai para o relatório quando ele for consolidado.
+
 ## Semana 2
 
 (repetir o modelo)
