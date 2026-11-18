@@ -8,7 +8,7 @@ Projeto da Unidade II de **Linguagens Formais e Compiladores** (Ciência da Comp
 
 | Integrante | Principais contribuições |
 |---|---|
-| Luís Felipe Carmelo da Silva | Revisão e correções da etapa A; desenvolvimento da etapa B (analisador léxico, documentação das expressões regulares e do AFD, testes léxicos); revisão da etapa C, incorporação dos testes do parser e da seção "Análise sintática" do relatório. |
+| Luís Felipe Carmelo da Silva | Revisão e correções da etapa A; desenvolvimento da etapa B (analisador léxico, documentação das expressões regulares e do AFD, testes léxicos); revisão da etapa C, incorporação dos testes do parser e da AST e da seção "Análise sintática" do relatório; implementação da etapa E (interpretador); elaboração do relatório em PDF e revisão dos testes das etapas B a E. |
 | [Tiago Sales Guimaraes] | [Parser descendente recursivo e AST (itens c e d), conforme o diário de bordo.] |
 | [Nome do terceiro integrante] | [Descrever as contribuições efetivamente realizadas.] |
 
@@ -25,36 +25,76 @@ Os usos específicos das ferramentas estão registrados em [`declaracao_IA.md`](
 
 ## Contribuições individuais registradas
 
-- **Luís Felipe Carmelo da Silva:** realizou a revisão e as correções da letra A, incluindo ajustes na documentação da gramática e nos exemplos. Desenvolveu a letra B (analisador léxico, testes e documentação) e incorporou o reconhecimento de comentários de bloco (`/* ... */`) como extensão da MiniLang, aceita pelo grupo para possibilitar o teste de comentários não fechados. Na letra C, revisou e incorporou os testes do parser e da AST e a seção "Análise sintática" do relatório, redigidos com apoio de IA (ver `declaracao_IA.md`).
+- **Luís Felipe Carmelo da Silva:** realizou a revisão e as correções da letra A, incluindo ajustes na documentação da gramática e nos exemplos. Desenvolveu a letra B (analisador léxico, testes e documentação) e incorporou o reconhecimento de comentários de bloco (`/* ... */`) como extensão da MiniLang, aceita pelo grupo para possibilitar o teste de comentários não fechados. Na letra C, revisou e incorporou os testes do parser e da AST e a seção "Análise sintática" do relatório, redigidos com apoio de IA. Também ficou responsável pela implementação da letra E, correspondente ao interpretador, pela elaboração do relatório final em PDF e pela revisão dos testes das etapas B a E.
 - **Tiago Sales Guimaraes:** implementou o parser descendente recursivo e a AST (letras C e D), adaptando a primeira versão gerada com apoio de IA à gramática e à lógica do projeto.
 - **Demais integrantes:** preencher suas contribuições nesta seção conforme as atividades que efetivamente realizaram.
 
 Os registros de uso de IA e o detalhamento das atividades estão disponíveis em [`declaracao_IA.md`](declaracao_IA.md) e [`docs/diario_de_bordo.md`](docs/diario_de_bordo.md). A análise técnica será complementada no relatório final.
 
-## Requisitos
+1. Pré-requisitos
 
-- Python 3.10 ou superior.
+Python 3.10 ou superior.
+
+Git para clonar o repositório.
 
 ## Como executar
 
 ```bash
 # 1. Clonar e entrar na pasta
-git clone <URL-DO-REPOSITORIO>
+git clone https://github.com/felkip/Compilador_Projeto_II_LFC.git
 cd Compilador_Projeto_II_LFC
 
-# 2. Criar ambiente virtual (opcional)
-python -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
+# 2. Criar ambiente virtual (opcional, mas recomendado)
 
-# 3. Instalar dependências
-pip install -r requirements.txt
+O ambiente virtual mantém as dependências do projeto isoladas de outras instalações Python.
+
+Windows:
+
+py -m venv .venv
+.venv\Scripts\activate
+
+Linux/macOS:
+
+python3 -m venv .venv
+source .venv/bin/activate
+
+Após a ativação, o terminal exibirá (.venv) no início da linha de comando.
+
+# 3. Instalar as dependências
+
+Com o ambiente virtual ativado, execute:
+
+python -m pip install -r requirements.txt
+
+Caso opte por não utilizar um ambiente virtual, basta executar o comando de instalação diretamente no terminal.
 
 # 4. Executar um programa MiniLang
+
+Para executar os exemplos disponíveis:
+
 python -m src.interpreter exemplos/programa_valido.ml
+
+Para testar um programa com erros:
+
 python -m src.interpreter exemplos/programa_invalido.ml
 
-# 5. Executar a suíte de testes
-pytest
+O interpretador também permite definir um limite personalizado de iterações para os laços:
+
+python -m src.interpreter exemplos/programa_valido.ml --max-iteracoes 1000
+
+# 5. Executar os testes automatizados
+
+Para executar toda a suíte de testes:
+
+python -m pytest -v
+
+O parâmetro -v exibe individualmente os testes executados e seus resultados.
+
+# 6. Encerrar o ambiente virtual
+
+Ao terminar, você pode desativar o ambiente virtual com:
+
+deactivate
 ```
 
 > **Observação:** o comando de execução dos programas depende da implementação de um ponto de entrada (`main`) no interpretador.
