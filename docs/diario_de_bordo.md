@@ -1,7 +1,5 @@
 # Diário de bordo
 
-> O enunciado cita um "template da seção Diário de bordo" que não veio no PDF. Peça o template oficial à professora e adapte este arquivo se for diferente.
-
 ## Semana 1 — 16/11 a 22/11
 
 - **Fase:** gramática (item a)
