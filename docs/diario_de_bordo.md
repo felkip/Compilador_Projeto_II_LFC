@@ -101,8 +101,9 @@ Observação: como a semana vai até 22/11, este registro deve ser complementado
 - **Commits:** Acrescentar os itens pedidos da letra E, acrescentar os identificadores e as mensagens correspondentes às alterações efetivamente registradas no histórico do Git.
 - **Próximos passos:** concluir a revisão da documentação e continuar a fazer as outras letras (f, g e h).
 
-<<<<<<< HEAD
-///////////////////////////////////////////////////////////////////////////////
+
+## Semana 2 — 23/11 a 29/11
+
 - **Fase:** catálogo de erros (item f)
 - **Data do registro:** 24/11
 - **Quem fez o quê:**
@@ -121,11 +122,7 @@ Observação: como a semana vai até 22/11, este registro deve ser complementado
 - **Commits:** `Item (f): programas de erro em exemplos/erros`, `Item (f): testes que executam os exemplos de erro`, `Item (f): catálogo de erros e estratégia`.
 - **Próximos passos:** itens (g) e (h).
 
-## Semana 2
-=======
-## Semana 2 — 23/11 a 29/11
->>>>>>> 382181449c5017bb6b2091331d7555e3418fad10
-
+///////////////////////////////////////////////////////////////////////////////
 - **Fase:** testes e validação dos laços (item g).
 - **Data do registro:** 24/11.
 - **Quem fez o quê:**
@@ -148,4 +145,4 @@ Observação: como a semana vai até 22/11, este registro deve ser complementado
 - **Resultado da validação:** `python -m pytest -q` concluiu com **215 testes aprovados e nenhum teste ignorado ou com falha**.
 - **Arquivos envolvidos:** `tests/validos/test_lacos.py`, `tests/invalidos/test_laco_infinito.py` e `src/interpreter.py` (implementação do limite de iterações já existente, exercitada pelos novos testes).
 - **Commits:** registrar os hashes e as mensagens dos commits reais que incluírem os testes da etapa G; não preencher com identificadores estimados.
-- **Próximos passos:** incorporar ao relatório a descrição dos cenários de teste e a análise crítica do uso de IA exigidas pela etapa G; conferir a atualização do README e manter o resultado da suíte sincronizado com futuras alterações.
+- **Próximos passos:** incorporar ao relatório a descrição dos cenários de teste e a análise crítica do uso de IA exigidas pela etapa G; conferir a atualização do README, manter o resultado da suíte sincronizado com futuras alterações e fazer o vídeo (letra h).
