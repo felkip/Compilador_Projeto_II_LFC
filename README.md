@@ -8,9 +8,9 @@ Projeto da Unidade II de **Linguagens Formais e Compiladores** (Ciência da Comp
 
 | Integrante | Principais contribuições |
 |---|---|
-| Luís Felipe Carmelo da Silva | Revisão e correções da etapa A; desenvolvimento da etapa B (analisador léxico, documentação das expressões regulares e do AFD, testes léxicos); revisão da etapa C, incorporação dos testes do parser e da AST e da seção "Análise sintática" do relatório; implementação da etapa E (interpretador); elaboração do relatório em PDF e revisão dos testes das etapas B a E. |
-| [Tiago Sales Guimaraes] | [Parser descendente recursivo e AST (itens c e d), conforme o diário de bordo.] |
-| [Nome do terceiro integrante] | [Descrever as contribuições efetivamente realizadas.] |
+| Luís Felipe Carmelo da Silva | Revisão e correções da etapa A; desenvolvimento da etapa B (analisador léxico, documentação das expressões regulares e do AFD, testes léxicos); revisão da etapa C, incorporação dos testes do parser e da AST e da seção "Análise sintática" do relatório; implementação da etapa E (interpretador); elaboração do relatório em PDF; revisão dos testes das etapas B a E; desenvolvimento e ampliação da suíte de testes da etapa G, com casos de borda para `while` e `for`, limite de iterações, laços infinitos e laços aninhados. |
+| Tiago Sales Guimaraes | [Parser descendente recursivo e AST (itens c e d), conforme o diário de bordo.] |
+| João Paulo Melo Feitosa | [Descrever as contribuições efetivamente realizadas.] |
 
 ## Ferramentas utilizadas
 
@@ -25,7 +25,7 @@ Os usos específicos das ferramentas estão registrados em [`declaracao_IA.md`](
 
 ## Contribuições individuais registradas
 
-- **Luís Felipe Carmelo da Silva:** realizou a revisão e as correções da letra A, incluindo ajustes na documentação da gramática e nos exemplos. Desenvolveu a letra B (analisador léxico, testes e documentação) e incorporou o reconhecimento de comentários de bloco (`/* ... */`) como extensão da MiniLang, aceita pelo grupo para possibilitar o teste de comentários não fechados. Na letra C, revisou e incorporou os testes do parser e da AST e a seção "Análise sintática" do relatório, redigidos com apoio de IA. Também ficou responsável pela implementação da letra E, correspondente ao interpretador, pela elaboração do relatório final em PDF e pela revisão dos testes das etapas B a E.
+- **Luís Felipe Carmelo da Silva:** realizou a revisão e as correções da letra A, incluindo ajustes na documentação da gramática e nos exemplos. Desenvolveu a letra B (analisador léxico, testes e documentação) e incorporou o reconhecimento de comentários de bloco (`/* ... */`) como extensão da MiniLang, aceita pelo grupo para possibilitar o teste de comentários não fechados. Na letra C, revisou e incorporou os testes do parser e da AST e a seção "Análise sintática" do relatório, redigidos com apoio de IA. Também ficou responsável pela implementação da letra E, correspondente ao interpretador, pela elaboração do relatório final em PDF, pela revisão dos testes das etapas B a E e pelo desenvolvimento dos testes da etapa G. Na etapa G, acrescentou testes para `while` que não executa, executa uma vez e executa N vezes; para `for` com atualização da variável de controle; e para o limite de execução de laços infinitos, incluindo `while`, `for`, limite exato e laços aninhados.
 - **Tiago Sales Guimaraes:** implementou o parser descendente recursivo e a AST (letras C e D), adaptando a primeira versão gerada com apoio de IA à gramática e à lógica do projeto.
 - **Demais integrantes:** preencher suas contribuições nesta seção conforme as atividades que efetivamente realizaram.
 
