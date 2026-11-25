@@ -1,7 +1,5 @@
 # Diário de bordo
 
-> O enunciado cita um "template da seção Diário de bordo" que não veio no PDF. Peça o template oficial à professora e adapte este arquivo se for diferente.
-
 ## Semana 1 — 16/11 a 22/11
 
 - **Fase:** gramática (item a)
@@ -103,6 +101,7 @@ Observação: como a semana vai até 22/11, este registro deve ser complementado
 - **Commits:** Acrescentar os itens pedidos da letra E, acrescentar os identificadores e as mensagens correspondentes às alterações efetivamente registradas no histórico do Git.
 - **Próximos passos:** concluir a revisão da documentação e continuar a fazer as outras letras (f, g e h).
 
+<<<<<<< HEAD
 ///////////////////////////////////////////////////////////////////////////////
 - **Fase:** catálogo de erros (item f)
 - **Data do registro:** 24/11
@@ -123,5 +122,30 @@ Observação: como a semana vai até 22/11, este registro deve ser complementado
 - **Próximos passos:** itens (g) e (h).
 
 ## Semana 2
+=======
+## Semana 2 — 23/11 a 29/11
+>>>>>>> 382181449c5017bb6b2091331d7555e3418fad10
 
-(repetir o modelo)
+- **Fase:** testes e validação dos laços (item g).
+- **Data do registro:** 24/11.
+- **Quem fez o quê:**
+  - **Luís Felipe Carmelo da Silva:** revisão da cobertura de testes relacionada aos laços e criação/organização dos testes específicos da etapa G em `tests/validos/test_lacos.py` e `tests/invalidos/test_laco_infinito.py`.
+- **Atividades realizadas:**
+  - Foram documentados e testados os casos de `while` cuja condição já é falsa na entrada, `while` que executa exatamente uma vez e `while` que executa N vezes.
+  - Foi acrescentado um caso de `for` cuja atualização altera a variável de controle em passos maiores que um, verificando a sequência de valores e o valor final da variável.
+  - A cobertura de segurança foi ampliada com testes para `while` infinito e `for` infinito, verificando se `LimiteDeIteracoes` interrompe a execução antes que a suíte fique presa.
+  - Também foram testados o término normal de um laço finito que executa exatamente o limite permitido e o compartilhamento do contador de iterações entre laços aninhados.
+  - Os testes verificam não apenas a ocorrência ou ausência da exceção, mas também a saída produzida e os valores finais da tabela de símbolos.
+- **Decisões tomadas e por quê:**
+  - Separar os casos de comportamento normal (`test_lacos.py`) dos testes de segurança e limite de execução (`test_laco_infinito.py`), facilitando a identificação do objetivo de cada grupo.
+  - Verificar o limite em `while` e `for`, pois ambos precisam respeitar a proteção contra execução sem término.
+  - Incluir um caso de limite exato para distinguir a execução permitida da tentativa seguinte, que deve ser bloqueada.
+  - Verificar laços aninhados para confirmar que o contador considera as entradas nos laços de forma global durante a execução, e não reinicia a contagem a cada nível.
+- **Uso de IA:**
+  - **Ferramenta:** ChatGPT (OpenAI).
+  - **Apoio utilizado:** revisão dos testes de laços já existentes, identificação dos cenários específicos exigidos pela etapa G e auxílio na elaboração e ampliação dos testes de limite de iterações.
+  - **Validação humana:** os casos foram conferidos em relação ao comportamento implementado no interpretador, especialmente à exceção `LimiteDeIteracoes`, à saída acumulada e aos valores finais da tabela de símbolos. A suíte completa foi executada após as alterações.
+- **Resultado da validação:** `python -m pytest -q` concluiu com **215 testes aprovados e nenhum teste ignorado ou com falha**.
+- **Arquivos envolvidos:** `tests/validos/test_lacos.py`, `tests/invalidos/test_laco_infinito.py` e `src/interpreter.py` (implementação do limite de iterações já existente, exercitada pelos novos testes).
+- **Commits:** registrar os hashes e as mensagens dos commits reais que incluírem os testes da etapa G; não preencher com identificadores estimados.
+- **Próximos passos:** incorporar ao relatório a descrição dos cenários de teste e a análise crítica do uso de IA exigidas pela etapa G; conferir a atualização do README e manter o resultado da suíte sincronizado com futuras alterações.
