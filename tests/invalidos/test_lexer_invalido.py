@@ -1,3 +1,9 @@
+# RESULTADO ESPERADO (categoria: erro LEXICO): tokenize() levanta LexicalError
+#   @              -> "caractere nao permitido"
+#   1x             -> "numero malformado: digito seguido de letra"
+#   !  (isolado)   -> "'!' isolado; esperado '=' para formar '!='"
+#   /* sem fechar  -> "comentario de bloco nao fechado"
+# O lexer acumula todos os erros e so levanta a excecao no fim da leitura.
 """Testes de entradas léxicas inválidas da MiniLang."""
 import pytest
 

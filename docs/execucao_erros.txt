@@ -1,0 +1,41 @@
+=== exemplos/erros/lexico_1_caractere_invalido.ml
+erro léxico: caractere não permitido em 2:7 ('@')
+(código de saída: 1)
+
+=== exemplos/erros/lexico_2_numero_malformado.ml
+erro léxico: número malformado: dígito seguido de letra em 2:5 ('1x')
+(código de saída: 1)
+
+=== exemplos/erros/lexico_3_comentario_aberto.ml
+erro léxico: comentário de bloco não fechado; esperado '*/' em 3:1 ('/* este comentário nunca fecha\nprint(x);\n')
+(código de saída: 1)
+
+=== exemplos/erros/semantico_1_while_nao_booleano.ml
+erro semântico: [S4] a condição do 'while' deve ser booleana, mas é int (linha 3)
+(código de saída: 3)
+
+=== exemplos/erros/semantico_2_for_variavel_indefinida.ml
+erro semântico: [S1] variável 'j' não definida (linha 2)
+(código de saída: 3)
+
+=== exemplos/erros/semantico_3_divisao_por_zero.ml
+1
+erro semântico: [S6] divisão por zero (linha 3)
+(código de saída: 3)
+
+=== exemplos/erros/semantico_4_tipo_incompativel.ml
+erro semântico: [S2] o operador '+' exige operandos int, mas recebeu int e bool (linha 2)
+(código de saída: 3)
+
+=== exemplos/erros/sintatico_1_for_sem_atualizacao.ml
+erro sintático: esperado ';' após a condição do 'for' (a cláusula de atualização é obrigatória), encontrado ')' em 2:19
+(código de saída: 2)
+
+=== exemplos/erros/sintatico_2_expressao_incompleta.ml
+erro sintático: esperada uma expressão, encontrado ';' em 2:10
+(código de saída: 2)
+
+=== exemplos/erros/sintatico_3_ponto_virgula_ausente.ml
+erro sintático: esperado ';' após a atribuição, encontrado 'print' em 3:1
+(código de saída: 2)
+

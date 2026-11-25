@@ -103,6 +103,25 @@ Observação: como a semana vai até 22/11, este registro deve ser complementado
 - **Commits:** Acrescentar os itens pedidos da letra E, acrescentar os identificadores e as mensagens correspondentes às alterações efetivamente registradas no histórico do Git.
 - **Próximos passos:** concluir a revisão da documentação e continuar a fazer as outras letras (f, g e h).
 
+///////////////////////////////////////////////////////////////////////////////
+- **Fase:** catálogo de erros (item f)
+- **Data do registro:** 24/11
+- **Quem fez o quê:**
+  - **Tiago Sales:** catálogo de erros léxicos, sintáticos e semânticos; programas de demonstração em `exemplos/erros/` e transcrito de execução (`docs/execucao_erros.txt`); teste `tests/invalidos/test_exemplos_erros.py`; seção do relatório com a justificativa da estratégia de diagnóstico (`docs/catalogo_erros.md`).
+- **Decisões tomadas e por quê:**
+  - Léxico acumula erros e continua; sintático e semântico param no primeiro. Motivos: o AFD decide cada lexema localmente (retomada segura), enquanto depois de um erro sintático ou semântico o parser e o estado do programa deixam de ser confiáveis e os erros seguintes seriam consequências do primeiro.
+  - Não alterar `parser.py` nem `interpreter.py`: as mensagens já estavam fixadas pelos testes de `test_parser_invalido.py` e `test_interpreter_invalido.py`. O catálogo foi escrito a partir do comportamento real, e não o contrário.
+  - Um arquivo `.ml` por erro demonstrado (3 a 4 por categoria), executado pelo comando `python -m src.interpreter`, com o código de saída conferido nos testes.
+- **Dificuldades / descobertas:** o erro sintático é reportado onde foi detectado, não onde a causa está (`x = 1` sem `;` aparece na linha seguinte). Também só se detectam erros semânticos nos caminhos que executam.
+- **Uso de IA:**
+  - **Ferramenta:** Claude Sonnet 5.5 (Anthropic).
+  - **Prompt resumido:** montar o catálogo de erros do item (f), os programas de exemplo.
+  - **O que veio:** a tabela do catálogo, os 10 programas de `exemplos/erros/`, `test_exemplos_erros.py` e o texto da seção.
+  - **O que estava errado:** (1) a primeira versão partiu do princípio de que o interpretador ainda não existia e escreveu um próprio, descartado quando chegou a versão do item (e); (2) sugeriu melhorar a mensagem do `for` com cláusula vazia, mudança que quebraria os testes do parser e foi descartada; (3) o texto citava "`for` sem condição" como exemplo de mensagem específica do `for`, mas o parser reporta `esperada uma expressão`; (4) um exemplo de acúmulo de erros léxicos dava colunas erradas por estar numa linha só. Os itens 3 e 4 foram corrigidos conferindo com a execução real.
+  - **Validação humana:** todas as mensagens do catálogo foram copiadas da execução real e a suíte completa foi executada (222 testes aprovados, 1 ignorado), todos os codigos foram revisados, alterados e adicionados pelo grupo.
+- **Commits:** `Item (f): programas de erro em exemplos/erros`, `Item (f): testes que executam os exemplos de erro`, `Item (f): catálogo de erros e estratégia`.
+- **Próximos passos:** itens (g) e (h).
+
 ## Semana 2
 
 (repetir o modelo)
