@@ -19,15 +19,14 @@
   - **O que precisou ser conferido ou corrigido:** algumas justificativas misturavam conceitos da análise léxica com detalhes de implementação do autômato, como estados (`q0`, `NUM_ERR`) que pertencem ao item (b), e não à definição inicial da gramática. Também foi necessário conferir as sugestões com o enunciado e com as decisões tomadas pelo grupo.
   - **O que foi reescrito e por quê:** as justificativas da etapa A foram ajustadas para se apoiarem no alfabeto Σ e nas expressões regulares de `INT` e `ID`. As sugestões relacionadas ao lexer foram revisadas para manter a coerência com a implementação e com os testes do projeto.
   - **Validação humana:** as respostas das ferramentas foram analisadas e adaptadas antes de serem incorporadas ao projeto. A decisão final sobre o conteúdo e as alterações permaneceu com os integrantes do grupo.
-- **Commits da semana:** item (a): elaboração, revisão e correções da gramática e dos exemplos. Item (b): implementação do analisador léxico em `src/lexer.py`, documentação das expressões regulares e do autômato, além da criação da seção de análise léxica no relatorio.pdf e execução dos testes léxicos válidos e inválidos. Os identificadores e as mensagens dos commits devem ser acrescentados conforme o histórico real do Git.
+- **Commits da semana:** item (a): elaboração, revisão e correções da gramática e dos exemplos. Item (b): implementação do analisador léxico em `src/lexer.py`, documentação das expressões regulares e do autômato, além da criação da seção de análise léxica no relatorio.pdf e execução dos testes léxicos válidos e inválidos.
 - **Próximos passos:** iniciar o item (c), referente ao analisador sintático, e avançar na integração com a construção da AST (item d). Também será necessário revisar a integração entre as etapas já desenvolvidas e manter os testes atualizados.
 - **Resultado parcial:** as etapas (a) e (b) foram desenvolvidas, revisadas e documentadas. O analisador léxico está implementado e seus testes estão passando. As próximas atividades serão direcionadas às etapas seguintes do compilador.
   
-Observação: como a semana vai até 22/11, este registro deve ser complementado conforme novas atividades forem realizadas. Não registrar como concluídas tarefas que ainda estão previstas.
 
 ///////////////////////////////////////////////////////////////////////////////
 - **Fase:** parser (item c) e AST (item d)
-- **Quem fez o quê:** [Tiago Sales ]
+- **Quem fez o quê:** Tiago Sales
 - **Decisões tomadas e por quê:**
   - Parser descendente recursivo LL(1): uma função por não terminal; a
     precedência vem da cadeia de chamadas e as repetições `{ }` viram `while`
@@ -36,8 +35,8 @@ Observação: como a semana vai até 22/11, este registro deve ser complementado
   - `for` exige as três cláusulas: cada `;` e cada atribuição é obrigatório.
   - O parser para no primeiro erro sintático (ParseError com linha e coluna).
 - **Uso de IA:** Claude Sonnet 5.5 gerou a primeira versão de `parser.py` e
-  `ast_nodes.py`. [O que foi conferido: árvores de `1 + 2 * 3` e
-  `(1 + 2) * 3`, erro do `for` sem atualização.] [Reescrevi a parte do codigo para adaptação ao projeto e conferi os resultados, alterei a parte do ast_nodes.py na parte de expressões e alterei os comandos do ast_nodes.py e parser.py]
+  `ast_nodes.py`. O que foi conferido: árvores de `1 + 2 * 3` e
+  `(1 + 2) * 3` e o erro do `for` sem atualização. Reescrevi partes do código para adaptá-lo ao projeto e conferi os resultados; alterei, em `ast_nodes.py`, a parte de expressões e os comandos, com os ajustes correspondentes em `parser.py`.
 - **Próximos passos:** testes do parser e da AST (hoje pulados), depois o
   interpretador (item e).
 
@@ -58,9 +57,6 @@ Observação: como a semana vai até 22/11, este registro deve ser complementado
   - **Prompt resumido:** redigir a seção do relatório sobre o parser (técnica, compatibilidade LL(1), árvores, justificativa formal, comparação com LR) e escrever os testes do parser e da AST.
   - **O que veio:** os três arquivos de teste (105 testes passando na suíte) e o rascunho da seção do relatório.
   - **O que precisou ser conferido ou corrigido:** os testes passaram na primeira execução; para checar se realmente detectavam defeitos, o parser foi alterado de propósito de 5 formas. Uma dessas alterações foi construída incorretamente pela IA (equivalia ao código original e por isso "passou" sem ser detectada). Foi percebida e refeita, e as 5 alterações passaram a ser detectadas pelos testes. As árvores e as mensagens de erro do relatório foram geradas executando o `parser.py`, e os conjuntos FIRST/FOLLOW foram calculados e conferidos por execução.
-  - **O que foi reescrito e por quê:** [descrever o que o Luís Felipe realmente alterou no texto ou nos testes; se nada foi alterado, escrever "nada foi alterado após a conferência"].
-  - **Validação humana:** [confirmar: o Luís Felipe leu a seção, executou `pytest` e conferiu as árvores e mensagens com o `parser.py`]. O grupo deve conseguir explicar o cálculo de FIRST/FOLLOW e as provas da seção 5.
-- **Commits:** [colar o hash e a mensagem do commit, por exemplo `docs(relatorio): seção de análise sintática (item c)`].
 - **Próximos passos:** relatório do item (d) (diagrama da AST e justificativa); item (e), interpretador e tabela de símbolos.
   
 ///////////////////////////////////////////////////////////////////////////////
@@ -98,7 +94,6 @@ Observação: como a semana vai até 22/11, este registro deve ser complementado
   - **O que veio:** sugestões de verificações adicionais para o lexer e apoio na análise da cobertura dos testes existentes.
   - **O que precisou ser conferido ou corrigido:** as sugestões foram avaliadas em relação à implementação atual e à especificação da MiniLang. Os testes adicionados foram executados para verificar se os resultados correspondiam ao comportamento esperado.
   - **Validação humana:** a suíte de testes foi executada após as alterações, totalizando 213 testes aprovados e 2 testes ignorados, referentes a funcionalidades da etapa G ainda não implementadas.
-- **Commits:** Acrescentar os itens pedidos da letra E, acrescentar os identificadores e as mensagens correspondentes às alterações efetivamente registradas no histórico do Git.
 - **Próximos passos:** concluir a revisão da documentação e continuar a fazer as outras letras (f, g e h).
 
 
@@ -144,5 +139,4 @@ Observação: como a semana vai até 22/11, este registro deve ser complementado
   - **Validação humana:** os casos foram conferidos em relação ao comportamento implementado no interpretador, especialmente à exceção `LimiteDeIteracoes`, à saída acumulada e aos valores finais da tabela de símbolos. A suíte completa foi executada após as alterações.
 - **Resultado da validação:** `python -m pytest -q` concluiu com **215 testes aprovados e nenhum teste ignorado ou com falha**.
 - **Arquivos envolvidos:** `tests/validos/test_lacos.py`, `tests/invalidos/test_laco_infinito.py` e `src/interpreter.py` (implementação do limite de iterações já existente, exercitada pelos novos testes).
-- **Commits:** registrar os hashes e as mensagens dos commits reais que incluírem os testes da etapa G; não preencher com identificadores estimados.
 - **Próximos passos:** incorporar ao relatório a descrição dos cenários de teste e a análise crítica do uso de IA exigidas pela etapa G; conferir a atualização do README, manter o resultado da suíte sincronizado com futuras alterações e fazer o vídeo (letra h).
