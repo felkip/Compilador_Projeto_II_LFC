@@ -1,1 +1,0 @@
-Figuras do relatório
