@@ -107,4 +107,4 @@ tests/       testes válidos e inválidos
 
 ## Vídeo de apresentação
 
-[`apresentacao.mp4`](apresentacao.mp4)
+[`apresentacao.mp4`](docs/apresentacao.mp4)
