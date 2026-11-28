@@ -107,4 +107,4 @@ tests/       testes válidos e inválidos
 
 ## Vídeo de apresentação
 
-_Adicionar o link público do vídeo ou indicar o arquivo `docs/apresentacao.mp4`._
+[`docs/apresentacao.mp4`](docs/apresentacao.mp4]
